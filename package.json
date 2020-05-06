@@ -1,5 +1,14 @@
 {
   "main": "handler.js",
+  "scripts": {
+    "start": "sls info",
+
+    "sls:build-ts:desc": "echo The Typescript build script hooked at the begining of sls package/deploy",
+    "sls:build-ts": "npm run sls:build-ts:desc && npx tsc -p tsconfig.json",
+
+    "sls:enabled-local-python:desc": "echo Enable local venv w/ deps for python lambdas",
+    "sls:enabled-local-python": "npm run sls:enabled-local-python:desc && virtualenv venv --python=python3 && source venv/bin/activate && pip install -r requirements.txt"
+  },
   "dependencies": {
     "lodash": "^4.17.4"
   },
@@ -7,6 +16,7 @@
     "@kingdarboja/serverless-plugin-typescript": "^1.2.1",
     "@types/lodash": "4.14.91",
     "@types/node": "^11.13.0",
+    "serverless-plugin-scripts": "^1.0.2",
     "serverless-plugin-typescript": "1.1.7",
     "serverless-python-requirements": "^5.1.0",
     "typescript": "^3.8.3"

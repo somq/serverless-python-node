@@ -5,12 +5,15 @@
     "sourceMap": true,
     "allowJs": true,
     "target": "es5",
-    "outDir": ".build",
+    "outDir": "./lambdas",
     "moduleResolution": "node",
     "lib": ["es2015"],
-    "rootDir": "./"
+    "rootDir": "./lambdas"
   },
   "exclude": [
-    "lambdas/pyfunc/**/*",
+    "node_modules",
+    "lib",
+    "tests",
+    "_debug"
   ]
 }

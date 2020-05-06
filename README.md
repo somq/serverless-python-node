@@ -14,6 +14,7 @@ Deploy & test invokes
 ```sh
 sls deploy -v && sls invoke -f pyfunc --log && sls invoke -f tsfunc --log
 
+sls deploy -v && \
 sls invoke local -f pyfunc --log && \
 sls invoke local -f tsfunc --log && \
 sls invoke -f pyfunc --log && \

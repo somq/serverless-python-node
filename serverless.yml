@@ -1,14 +1,13 @@
 
 service: 
-  name: numpy-test
+  name: sls-py-node
   publish: false # disable auto-publishing to the Serverless platform
 
-## Order is important
 plugins:
+  # - serverless-plugin-typescript
   # - '@kingdarboja/serverless-plugin-typescript'
   - serverless-python-requirements
-  # - serverless-plugin-typescript
-  # - serverless-python-individually
+  - serverless-plugin-scripts
 
 custom:
   pythonRequirements:
@@ -19,6 +18,11 @@ custom:
   # pyIndividually:
     # wrap:pyfunc: lambdas/pyfunc/handler.main     # mapping to the real handler
 
+  scripts:
+    hooks:
+      'package:initialize': 'npm run sls:build-ts'
+      # 'package:initialize': echo Hello from ${self:service} service!
+
   typeScript:
     tsconfigFilePath: ./tsconfig.json
 
@@ -27,8 +31,10 @@ package:
   exclude:
     - node_modules/**
     - .build/**
-    - lambdas/pyfunc/venv/**
-    - lambdas/pyfunc/__pycache__/**
+    # - lambdas/pyfunc/venv/**
+    # - lambdas/pyfunc/__pycache__/**
+    - venv/**
+    - __pycache__/**
 
 provider:
   name: aws
