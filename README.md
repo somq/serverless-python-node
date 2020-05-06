@@ -68,7 +68,7 @@ package:
     - lambdas/pyfunc/__pycache__/**
 ```
 
-#### serverless-plugin-typescript mess
+#### serverless-plugin-typescript mess (a solution that's not.)
 
 - serverless-plugin-typescript does not support mixing python and node lambdas.  
 
