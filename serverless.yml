@@ -11,17 +11,13 @@ plugins:
 
 custom:
   pythonRequirements:
-    # dockerizePip: non-linux
-    dockerizePip: true
+    dockerizePip: non-linux
     # zip: true
     # slim: true
-  # pyIndividually:
-    # wrap:pyfunc: lambdas/pyfunc/handler.main     # mapping to the real handler
 
   scripts:
     hooks:
       'package:initialize': 'npm run sls:build-ts'
-      # 'package:initialize': echo Hello from ${self:service} service!
 
   typeScript:
     tsconfigFilePath: ./tsconfig.json
@@ -38,35 +34,13 @@ package:
 
 provider:
   name: aws
-  # runtime: nodejs12.x
-  # environment:
-  #   PYTHONPATH: '/var/task/vendored:/var/runtime'
 
 functions:
 
   pyfunc:
-    ## Invoke local OK, invoke remote KO
-    # # handler: handler.main
-    # handler: lambdas/pyfunc/handler.main
-    # runtime: python3.6
-    # module: lambdas/pyfunc
-
-    # handler: handler.main
     handler: lambdas/pyfunc/handler.main
     runtime: python3.6
-    # module: lambdas/pyfunc
 
   tsfunc:
     handler: lambdas/tsfunc/handler.hello
     runtime: nodejs12.x
-
-
-# functions:
-
-#   pyfunc:
-#     handler: lambdas/pyfunc/wrap.handler
-#     runtime: python3.6
-#     package:
-#       include:
-#         - lambdas/pyfunc/**
-
