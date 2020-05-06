@@ -83,3 +83,9 @@ Probaly because of the overwrite of the [this.serverless.config.servicePath](htt
 > @see [tsplugin-index](./tsplugin-index) (manually edited node_modules/@kingdarboja/serverless-plugin-typescript for debugging purposes)
 
 **Solution** is to transpile ts files manually and leave them in the lambda folder **before** running `sls package/deploy`
+
+## Summary
+
+- `requirements.txt` @root, common for all python lambdas
+- venv (`npm run sls:enabled-local-python`) to enable `sls invoke local` for python lambdas
+- manual TS build (`npm run sls:build-ts`) hooked w/ `serverless-plugin-scripts`
