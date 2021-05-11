@@ -10,7 +10,7 @@
     "sls:enabled-local-python": "npm run sls:enabled-local-python:desc && virtualenv venv --python=python3 && source venv/bin/activate && pip install -r requirements.txt"
   },
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@kingdarboja/serverless-plugin-typescript": "^1.2.1",
